@@ -53,6 +53,14 @@ function Board({ xIsNext, squares, onPlay }) {
   );
 }
 
+function HistoryItem() {
+  
+}
+
+function History() {
+  
+}
+
 export default function Game() {
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [currentMove, setCurrentMove] = useState(0);
