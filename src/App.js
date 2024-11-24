@@ -53,8 +53,14 @@ function Board({ xIsNext, squares, onPlay }) {
   );
 }
 
-function HistoryItem() {
-
+function HistoryItem({ move, onHistoryMoveClick }) {
+  return (
+    <li key={move}>
+      <button onClick={onHistoryMoveClick}>
+        {move > 0 ? "Go to move #" + move : "Go to game start"}
+      </button>
+    </li>
+  )
 }
 
 function History({ history, onMoveChange }) {
