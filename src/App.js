@@ -53,11 +53,11 @@ function Board({ xIsNext, squares, onPlay }) {
   );
 }
 
-function HistoryItem({ move, onHistoryMoveClick }) {
+function HistoryItem({ move, description, onHistoryMoveClick }) {
   return (
     <li>
-      <button onClick={onHistoryMoveClick}>
-        {move > 0 ? "Go to move #" + move : "Go to game start"}
+      <button className="history-item" onClick={onHistoryMoveClick}>
+        {description}
       </button>
     </li>
   )
@@ -68,6 +68,18 @@ function History({ history, onMoveChange }) {
     onMoveChange(jumpToMove);
   }
 
+  const description = (move) => (
+    move > 0 ? (
+      move === history.length - 1 ? (
+        "You are at move #" + move
+      ) : (
+        "Go to move #" + move
+      )
+    ) : (
+      "Go to game start"
+    )
+  );
+
   return (
     <div className="game-info">
       <ol>
@@ -75,6 +87,7 @@ function History({ history, onMoveChange }) {
           <HistoryItem
             key={move}
             move={move}
+            description={description(move)}
             onHistoryMoveClick={() => handleHistoryMoveClick(move)}
           />
         ))}

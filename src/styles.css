@@ -86,3 +86,23 @@ ul {
 .game-info {
   margin-left: 20px;
 }
+
+.history-item {
+  background-color: white;
+  border-radius: 5px;
+  padding: 5px;
+  border: none;
+  margin-block: 5px;
+
+  &:hover {
+    outline: 1px solid lightskyblue;
+    background-color: rgb(135 206 250 / 0.2);
+    cursor: pointer;
+  }
+}
+
+ol {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
