@@ -1,108 +1,59 @@
-* {
+html {
   box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
 }
 
 body {
-  font-family: sans-serif;
-  margin: 0;
-  padding: 0;
-  height: 100vh;
   display: block flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow-x: hidden;
+  width: 100vw;
+  min-height: 100vh;
+  height: 100vh;
+  margin: 0;
 }
 
-h1 {
-  margin-top: 0;
-  font-size: 22px;
+#root {
+  height: 50vmin;
 }
 
-h2 {
-  margin-top: 0;
-  font-size: 20px;
+.game {
+  display: block flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  height: 100%;
 }
 
-h3 {
-  margin-top: 0;
-  font-size: 18px;
-}
-
-h4 {
-  margin-top: 0;
-  font-size: 16px;
-}
-
-h5 {
-  margin-top: 0;
-  font-size: 14px;
-}
-
-h6 {
-  margin-top: 0;
-  font-size: 12px;
-}
-
-code {
-  font-size: 1.2em;
-}
-
-ul {
-  padding-inline-start: 20px;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-.square {
-  background: #fff;
-  border: 1px solid #999;
-  float: left;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 34px;
-  height: 34px;
-  margin-right: -1px;
-  margin-top: -1px;
-  padding: 0;
-  text-align: center;
-  width: 34px;
-}
-
-.board-row:after {
-  clear: both;
-  content: '';
-  display: table;
+.game-main {
+  display: block flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-grow: 1;
 }
 
 .status {
-  margin-bottom: 10px;
-}
-.game {
-  display: flex;
-  flex-direction: row;
+  margin: 20px;
 }
 
-.game-info {
-  margin-left: 20px;
-}
-
-.history-item {
-  background-color: white;
-  border-radius: 5px;
-  padding: 5px;
-  border: none;
-  margin-block: 5px;
-
-  &:hover {
-    outline: 1px solid lightskyblue;
-    background-color: rgb(135 206 250 / 0.2);
-    cursor: pointer;
-  }
+.game-board {
+  display: block grid;
+  grid-template-columns: repeat(3, 50px);
+  grid-template-rows: repeat(3, 50px);
+  height: 50%;
+  width: 50%;
+  margin: 0;
 }
 
 ol {
   list-style-type: none;
-  padding: 0;
   margin: 0;
+  margin-left: 40px;
+  padding: 0;
 }
