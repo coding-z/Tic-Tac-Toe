@@ -64,7 +64,7 @@ body {
 }
 .square:hover {
   cursor: pointer;
-  background-color: rgb(0 0 0 / 0.1);
+  background-color: rgb(211 211 211 / 0.5);
 }
 
 .square.x {
@@ -72,7 +72,7 @@ body {
 }
 
 .square.x:hover {
-  background-color: lightblue;
+  background-color: rgb(0 0 255 / 0.2);
 }
 
 .square.o {
@@ -80,7 +80,7 @@ body {
 }
 
 .square.o:hover {
-  background-color: lightgreen;
+  background-color: rgb(0 128 0 / 0.2);
 }
 
 .game-info {
@@ -103,15 +103,29 @@ ol li:not(:first-child) {
   margin-top: 10px;
 }
 
-ol li button {
+.history-item {
   background-color: white;
   border-radius: 5px;
-  border: 1px solid blue;
   padding: 5px;
   width: 100%;
 }
 
-ol li button:hover {
+.history-item.x {
+  border: 2px solid blue;
+}
+
+.history-item.o {
+  border: 2px solid green;
+}
+
+.history-item:hover {
   cursor: pointer;
+}
+
+.history-item.x:hover {
   background-color: rgb(0 0 255 / 0.1);
+}
+
+.history-item.o:hover {
+  background-color: rgb(0 128 0 / 0.1);
 }

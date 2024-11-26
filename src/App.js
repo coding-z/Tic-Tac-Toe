@@ -56,7 +56,10 @@ function Board({ xIsNext, squares, onPlay }) {
 function HistoryItem({ move, description, onHistoryMoveClick }) {
   return (
     <li>
-      <button className="history-item" onClick={onHistoryMoveClick}>
+      <button
+        className={clsx("history-item", move % 2 ? "o" : "x")}
+        onClick={onHistoryMoveClick}
+      >
         {description}
       </button>
     </li>
