@@ -3,7 +3,10 @@ import clsx from "clsx";
 
 function Square({ value, onSquareClick }) {
   return (
-    <button className="square" onClick={onSquareClick}>
+    <button
+      className={clsx("square", value === "X" && "x", value === "O" && "o")}
+      onClick={onSquareClick}
+    >
       {value}
     </button>
   );

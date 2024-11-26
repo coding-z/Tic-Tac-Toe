@@ -62,18 +62,25 @@ body {
   border: 1px solid lightgray;
   font-size: 80px;
 }
+.square:hover {
+  cursor: pointer;
+  background-color: rgb(0 0 0 / 0.1);
+}
 
 .square.x {
   color: blue;
+}
+
+.square.x:hover {
+  background-color: lightblue;
 }
 
 .square.o {
   color: green;
 }
 
-.game-board button:hover {
-  cursor: pointer;
-  background-color: darkgray;
+.square.o:hover {
+  background-color: lightgreen;
 }
 
 .game-info {
