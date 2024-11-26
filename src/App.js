@@ -1,4 +1,5 @@
 import { useState } from "react";
+import clsx from "clsx";
 
 function Square({ value, onSquareClick }) {
   return (

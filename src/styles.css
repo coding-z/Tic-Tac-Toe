@@ -50,18 +50,25 @@ body {
 
 .game-board {
   display: block grid;
-  grid-template-columns: repeat(3, 70px);
-  grid-template-rows: repeat(3, 70px);
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
   margin: 0;
-  border: 1px solid gray;
+  border: 1px solid lightgray;
 }
 
-.game-board button {
-  background-color: lightgray;
+.square {
+  background-color: white;
   border-radius: 0;
-  border: 1px solid gray;
-  color: white;
-  font-size: 60px;
+  border: 1px solid lightgray;
+  font-size: 80px;
+}
+
+.square.x {
+  color: blue;
+}
+
+.square.o {
+  color: green;
 }
 
 .game-board button:hover {
@@ -73,7 +80,7 @@ body {
   display: block flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  align-items: stretch;
   padding: 40px;
   width: 300px;
 }
@@ -92,11 +99,12 @@ ol li:not(:first-child) {
 ol li button {
   background-color: white;
   border-radius: 5px;
-  padding: 10px;
+  border: 1px solid blue;
+  padding: 5px;
   width: 100%;
 }
 
 ol li button:hover {
   cursor: pointer;
-  background-color: lightgray;
+  background-color: rgb(0 0 255 / 0.1);
 }
