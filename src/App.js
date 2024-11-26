@@ -29,15 +29,22 @@ function Board({ xIsNext, squares, onPlay }) {
 
   const winner = calculateWinner(squares);
   let status;
+  let player;
+
   if (winner) {
-    status = "Winner: " + winner;
+    status = "Winner: ";
+    player = winner;
   } else {
-    status = "Next player: " + (xIsNext ? "X" : "O");
+    status = "Next player: ";
+    player = (xIsNext ? "X" : "O");
   }
   
   return (
     <div className="game-main">
-      <div className="status">{status}</div>
+      <div className="status">
+        {status}
+        <span className={clsx(player === "X" ? "x" : "o")}>{player}</span>
+      </div>
       <div className="game-board">
         <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
         <Square value={squares[1]} onSquareClick={() => handleClick(1)} />

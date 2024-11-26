@@ -46,6 +46,16 @@ body {
 
 .status {
   margin: 40px;
+  font-size: x-large;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.x {
+  color: blue;
+}
+
+.o {
+  color: green;
 }
 
 .game-board {
@@ -62,6 +72,7 @@ body {
   border: 1px solid lightgray;
   font-size: 80px;
 }
+
 .square:hover {
   cursor: pointer;
   background-color: rgb(211 211 211 / 0.5);
@@ -108,6 +119,7 @@ ol li:not(:first-child) {
   border-radius: 5px;
   padding: 5px;
   width: 100%;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .history-item.x {
