@@ -51,15 +51,51 @@ function Board({ xIsNext, squares, onPlay }) {
         <span className={clsx(player === "X" ? "x" : "o")}>{player}</span>
       </div>
       <div className="game-board">
-        <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
-        <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
-        <Square value={squares[2]} onSquareClick={() => handleClick(2)} />
-        <Square value={squares[3]} onSquareClick={() => handleClick(3)} />
-        <Square value={squares[4]} onSquareClick={() => handleClick(4)} />
-        <Square value={squares[5]} onSquareClick={() => handleClick(5)} />
-        <Square value={squares[6]} onSquareClick={() => handleClick(6)} />
-        <Square value={squares[7]} onSquareClick={() => handleClick(7)} />
-        <Square value={squares[8]} onSquareClick={() => handleClick(8)} />
+        <Square
+          value={squares[0]}
+          onSquareClick={() => handleClick(0)}
+          isWin={winnerSquares?.includes(0)}
+        />
+        <Square
+          value={squares[1]}
+          onSquareClick={() => handleClick(1)}
+          isWin={winnerSquares?.includes(1)}
+        />
+        <Square
+          value={squares[2]}
+          onSquareClick={() => handleClick(2)}
+          isWin={winnerSquares?.includes(2)}
+        />
+        <Square
+          value={squares[3]}
+          onSquareClick={() => handleClick(3)}
+          isWin={winnerSquares?.includes(3)}
+        />
+        <Square
+          value={squares[4]}
+          onSquareClick={() => handleClick(4)}
+          isWin={winnerSquares?.includes(4)}
+        />
+        <Square
+          value={squares[5]}
+          onSquareClick={() => handleClick(5)}
+          isWin={winnerSquares?.includes(5)}
+        />
+        <Square
+          value={squares[6]}
+          onSquareClick={() => handleClick(6)}
+          isWin={winnerSquares?.includes(6)}
+        />
+        <Square
+          value={squares[7]}
+          onSquareClick={() => handleClick(7)}
+          isWin={winnerSquares?.includes(7)}
+        />
+        <Square
+          value={squares[8]}
+          onSquareClick={() => handleClick(8)}
+          isWin={winnerSquares?.includes(8)}
+        />
       </div>
     </div>
   );
