@@ -10,6 +10,7 @@ function XSvg({ animate }) {
       height="100"
     >
       <line
+        className={!animate && "no-animate"}
         x1="80"
         y1="20"
         x2="20"
@@ -21,6 +22,7 @@ function XSvg({ animate }) {
         strokeDashoffset="85"
       />
       <line
+        className={!animate && "no-animate"}
         x1="20"
         y1="20"
         x2="80"
@@ -44,6 +46,7 @@ function OSvg({ animate }) {
       height="100"
     >
       <circle
+        className={!animate && "no-animate"}
         cx="50"
         cy="50"
         r="30"
@@ -70,9 +73,9 @@ function Square({ value, onSquareClick, isWin }) {
       onClick={onSquareClick}
     >
       {value === "X" ? (
-        <XSvg />
+        <XSvg animate />
       ) : value === "O" ? (
-        <OSvg />
+        <OSvg animate />
       ) : (
         null
       )}

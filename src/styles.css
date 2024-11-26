@@ -132,16 +132,24 @@ body {
   }
 }
 
-svg line:first-child {
+svg line:first-child:not(.no-animate) {
   animation: draw 300ms linear forwards;
 }
 
-svg line:last-child {
+svg line.no-animate {
+  stroke-dashoffset: 0;
+}
+
+svg line:last-child:not(.no-animate) {
   animation: draw 300ms linear 300ms forwards
 }
 
-svg circle {
+svg circle:not(.no-animate) {
   animation: draw 600ms linear forwards;
+}
+
+svg circle.no-animate {
+  stroke-dashoffset: 0;
 }
 
 .game-info {
