@@ -1,3 +1,8 @@
+:root {
+  --square-size: 100px;
+  --gap-size: 4px;
+}
+
 html {
   box-sizing: border-box;
 }
@@ -60,17 +65,50 @@ body {
 
 .game-board {
   display: block grid;
-  grid-template-columns: repeat(3, 100px);
-  grid-template-rows: repeat(3, 100px);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   margin: 0;
-  border: 1px solid lightgray;
+  position: relative;
+  height: calc(3 * var(--square-size) + 2 * var(--gap-size));
+  width: calc(3 * var(--square-size) + 2 * var(--gap-size));
+  gap: var(--gap-size);
+}
+
+.grid-line {
+  position: absolute;
+  background-color: gray;
+  border-radius: var(--gap-size);
+}
+
+.grid-line.v-1 {
+  width: var(--gap-size);
+  height: 100%;
+  left: var(--square-size);
+}
+
+.grid-line.v-2 {
+  width: var(--gap-size);
+  height: 100%;
+  right: var(--square-size);
+}
+
+.grid-line.h-1 {
+  width: 100%;
+  height: var(--gap-size);
+  top: var(--square-size);
+}
+
+.grid-line.h-2 {
+  width: 100%;
+  height: var(--gap-size);
+  bottom: var(--square-size);
 }
 
 .square {
   background-color: white;
   border-radius: 0;
-  border: 1px solid lightgray;
   font-size: 80px;
+  border: none;
 }
 
 .square:hover {

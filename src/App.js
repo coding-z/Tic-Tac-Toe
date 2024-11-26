@@ -65,6 +65,10 @@ function Board({ xIsNext, squares, onPlay }) {
             />
           ))
         }
+        <div className="grid-line v-1"></div>
+        <div className="grid-line v-2"></div>
+        <div className="grid-line h-1"></div>
+        <div className="grid-line h-2"></div>
       </div>
     </div>
   );
