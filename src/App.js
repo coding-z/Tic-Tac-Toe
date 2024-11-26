@@ -33,12 +33,16 @@ function Board({ xIsNext, squares, onPlay }) {
   }
 
   const winnerSquares = calculateWinner(squares);
+  const draw = !winnerSquares && !squares.includes(null);
   let status;
   let player;
 
   if (winnerSquares) {
     status = "Winner: ";
     player = squares[winnerSquares[0]];
+  } else if (draw) {
+    status = "Draw";
+    player = undefined;
   } else {
     status = "Next player: ";
     player = (xIsNext ? "X" : "O");
