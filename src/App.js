@@ -29,7 +29,7 @@ function Board({ xIsNext, squares, onPlay }) {
     } else {
       nextSquares[i] = "O";
     }
-    onPlay(nextSquares);
+    onPlay(nextSquares, i);
   }
 
   const winnerSquares = calculateWinner(squares);
@@ -74,7 +74,7 @@ function HistoryItem({ move, description, onHistoryMoveClick }) {
   return (
     <li>
       <button
-        className={clsx("history-item", move % 2 ? "o" : "x")}
+        className={clsx("history-item", (move % 2 || !move) ? "x" : "o")}
         onClick={onHistoryMoveClick}
       >
         {description}
@@ -88,26 +88,28 @@ function History({ history, onMoveChange }) {
     onMoveChange(jumpToMove);
   }
 
-  const description = (move) => (
-    move > 0 ? (
-      move === history.length - 1 ? (
-        "You are at move #" + move
-      ) : (
-        "Go to move #" + move
-      )
-    ) : (
-      "Go to game start"
-    )
-  );
+  
+  const description = (move, coords) => {
+    const movePlayer = move % 2 ? "X" : "O";
+    const moveCoords = coords && `(${coords.row}, ${coords.col})`;
+
+    if (move === 0) {
+      return "Go to game start";
+    } else if (move === history.length - 1) {
+      return `At move #${move}: ${movePlayer} on ${moveCoords}`;
+    } else {
+      return `Go to move #${move}: ${movePlayer} on ${moveCoords}`;
+    }
+  };
 
   return (
     <div className="game-info">
       <ol>
-        {history.map((squares, move) => (
+        {history.map(({ board, moveCoords }, move) => (
           <HistoryItem
             key={move}
             move={move}
-            description={description(move)}
+            description={description(move, moveCoords)}
             onHistoryMoveClick={() => handleHistoryMoveClick(move)}
           />
         ))}
@@ -117,13 +119,23 @@ function History({ history, onMoveChange }) {
 }
 
 export default function Game() {
-  const [history, setHistory] = useState([Array(9).fill(null)]);
+  const [history, setHistory] = useState([{
+    board: Array(9).fill(null),
+    moveCoords: null
+  }]);
   const [currentMove, setCurrentMove] = useState(0);
   const xIsNext = currentMove % 2 === 0;
-  const currentSquares = history[currentMove];
+  const currentSquares = history[currentMove].board;
 
-  function handlePlay(nextSquares) {
-    const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
+  function handlePlay(nextSquares, moveCoordIndex) {
+    const coords = {
+      row: Math.floor(moveCoordIndex / 3),
+      col: moveCoordIndex % 3
+    };
+    const nextHistory = [
+      ...history.slice(0, currentMove + 1),
+      { board: nextSquares, moveCoords: coords }
+    ];
     setHistory(nextHistory);
     setCurrentMove(nextHistory.length - 1);
   }  
