@@ -12,7 +12,58 @@ function Square({ value, onSquareClick, isWin }) {
       )}
       onClick={onSquareClick}
     >
-      {value}
+      {value === "X" ? (
+        <svg
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          width="100"
+          height="100"
+        >
+          <line
+            x1="80"
+            y1="20"
+            x2="20"
+            y2="80"
+            stroke="#023E8A"
+            strokeWidth="4"
+            strokeLinecap="round"
+            strokeDasharray="85"
+            strokeDashoffset="85"
+          />
+          <line
+            x1="20"
+            y1="20"
+            x2="80"
+            y2="80"
+            stroke="#023E8A"
+            strokeWidth="4"
+            strokeLinecap="round"
+            strokeDasharray="90"
+            strokeDashoffset="90"
+          />
+        </svg>
+      ) : value === "O" ? (
+        <svg
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          width="100"
+          height="100"
+        >
+          <circle
+            cx="50"
+            cy="50"
+            r="30"
+            stroke="#3A5A40"
+            strokeWidth="4"
+            strokeLinecap="round"
+            fill="none"
+            strokeDasharray="190"
+            strokeDashoffset="-190"
+          />
+        </svg>
+      ) : (
+        null
+      )}
     </button>
   );
 }
