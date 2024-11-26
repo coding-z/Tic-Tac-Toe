@@ -1,10 +1,15 @@
 import { useState } from "react";
 import clsx from "clsx";
 
-function Square({ value, onSquareClick }) {
+function Square({ value, onSquareClick, isWin }) {
   return (
     <button
-      className={clsx("square", value === "X" && "x", value === "O" && "o")}
+      className={clsx(
+        "square",
+        value === "X" && "x",
+        value === "O" && "o",
+        isWin && "win"
+      )}
       onClick={onSquareClick}
     >
       {value}
@@ -27,13 +32,13 @@ function Board({ xIsNext, squares, onPlay }) {
     onPlay(nextSquares);
   }
 
-  const winner = calculateWinner(squares);
+  const winnerSquares = calculateWinner(squares);
   let status;
   let player;
 
-  if (winner) {
+  if (winnerSquares) {
     status = "Winner: ";
-    player = winner;
+    player = squares[winnerSquares[0]];
   } else {
     status = "Next player: ";
     player = (xIsNext ? "X" : "O");
@@ -140,7 +145,7 @@ function calculateWinner(squares) {
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return squares[a];
+      return [a, b, c];
     }
   }
   return null;
