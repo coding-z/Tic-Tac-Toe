@@ -5,9 +5,10 @@
   --color-green: #3A5A40;
   --color-grey: #F8F9FA;
   --color-dark-grey: #495057;
-  --color-blue-highlight: lightblue;
-  --color-green-highlight: lightgreen;
-  --color-grey-highlight: lightgray;
+  --color-blue-highlight: #00B4D833;
+  --color-green-highlight: #52B78833;
+  --color-grey-highlight: #ADB5BD55;
+  --color-grey-text: #212529;
 }
 
 html {
@@ -29,6 +30,11 @@ body {
   height: 100vh;
   margin: 0;
   background-color: var(--color-grey);
+}
+
+* {
+  color: var(--color-grey-text);
+  font-size: 1em;
 }
 
 #root {
@@ -117,16 +123,16 @@ body {
   padding: 0;
 }
 
-.square:hover {
+.game-board:not(.game-over) .square:hover {
   cursor: pointer;
   background-color: var(--color-grey-highlight);
 }
 
-.square.x:hover, .square.x.win {
+.game-board:not(.game-over) .square.x:hover, .square.x.win {
   background-color: var(--color-blue-highlight);
 }
 
-.square.o:hover, .square.o.win {
+.game-board:not(.game-over) .square.o:hover, .square.o.win {
   background-color: var(--color-green-highlight);
 }
 
@@ -162,7 +168,7 @@ svg circle.no-animate {
   justify-content: flex-start;
   align-items: stretch;
   padding: 40px;
-  width: 300px;
+  width: 400px;
 }
 
 ol {
@@ -172,25 +178,22 @@ ol {
   width: 100%;
 }
 
-ol li:not(:first-child) {
-  margin-top: 10px;
-}
-
 .history-item {
   background-color: var(--color-grey);
   border-radius: 5px;
-  padding: 5px;
+  border: none;
+  padding: 10px;
   width: 100%;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-
+/* 
 .history-item.x {
   border: 2px solid var(--color-blue);
 }
 
 .history-item.o {
   border: 2px solid var(--color-green);
-}
+} */
 
 .history-item:hover {
   cursor: pointer;

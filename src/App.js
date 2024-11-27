@@ -120,7 +120,10 @@ function Board({ xIsNext, squares, onPlay }) {
         {status}
         {player}
       </div>
-      <div className="game-board">
+      <div className={clsx(
+        "game-board",
+        (winnerSquares || draw) && "game-over"
+      )}>
         {
           Array(9).fill(null).map((_, i) => (
             <Square
