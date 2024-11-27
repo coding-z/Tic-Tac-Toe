@@ -1,61 +1,61 @@
 import { useState } from "react";
 import clsx from "clsx";
 
-function XSvg({ animate }) {
+function XSvg({ small, animate }) {
   return (
     <svg
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
-      width="100"
-      height="100"
+      width={small ? "30" : "100"}
+      height={small ? "30" : "100"}
     >
       <line
         className={!animate && "no-animate"}
-        x1="80"
-        y1="20"
-        x2="20"
-        y2="80"
+        x1={small ? "26" : "80"}
+        y1={small ? "4" : "20"}
+        x2={small ? "4" : "20"}
+        y2={small ? "26" : "80"}
         stroke="#023E8A"
-        strokeWidth="4"
+        strokeWidth={small ? "3" : "4"}
         strokeLinecap="round"
-        strokeDasharray="85"
-        strokeDashoffset="85"
+        strokeDasharray={small ? "32" : "90"}
+        strokeDashoffset={small ? "32" : "90"}
       />
       <line
         className={!animate && "no-animate"}
-        x1="20"
-        y1="20"
-        x2="80"
-        y2="80"
+        x1={small ? "4" : "20"}
+        y1={small ? "4" : "20"}
+        x2={small ? "26" : "80"}
+        y2={small ? "26" : "80"}
         stroke="#023E8A"
-        strokeWidth="4"
+        strokeWidth={small ? "3" : "4"}
         strokeLinecap="round"
-        strokeDasharray="90"
-        strokeDashoffset="90"
+        strokeDasharray={small ? "32" : "90"}
+        strokeDashoffset={small ? "32" : "90"}
       />
     </svg>
   );
 }
 
-function OSvg({ animate }) {
+function OSvg({ small, animate }) {
   return (
     <svg
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
-      width="100"
-      height="100"
+      width={small ? "30" : "100"}
+      height={small ? "30" : "100"}
     >
       <circle
         className={!animate && "no-animate"}
-        cx="50"
-        cy="50"
-        r="30"
+        cx={small ? "15" : "50"}
+        cy={small ? "15" : "50"}
+        r={small ? "11" : "30"}
         stroke="#3A5A40"
-        strokeWidth="4"
+        strokeWidth={small ? "3" : "4"}
         strokeLinecap="round"
         fill="none"
-        strokeDasharray="190"
-        strokeDashoffset="-190"
+        strokeDasharray={small ? "70" : "190"}
+        strokeDashoffset={small ? "-70" : "-190"}
       />
     </svg>
   );
@@ -111,14 +111,14 @@ function Board({ xIsNext, squares, onPlay }) {
     player = undefined;
   } else {
     status = "Next player: ";
-    player = (xIsNext ? "X" : "O");
+    player = (xIsNext ? <XSvg small /> : <OSvg small />);
   }
   
   return (
     <div className="game-main">
       <div className="status">
         {status}
-        <span className={clsx(player === "X" ? "x" : "o")}>{player}</span>
+        {player}
       </div>
       <div className="game-board">
         {

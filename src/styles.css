@@ -1,6 +1,13 @@
 :root {
   --square-size: 100px;
   --gap-size: 4px;
+  --color-blue: #023E8A;
+  --color-green: #3A5A40;
+  --color-grey: #F8F9FA;
+  --color-dark-grey: #495057;
+  --color-blue-highlight: lightblue;
+  --color-green-highlight: lightgreen;
+  --color-grey-highlight: lightgray;
 }
 
 html {
@@ -21,7 +28,7 @@ body {
   min-height: 100vh;
   height: 100vh;
   margin: 0;
-  background-color: #F8F9FA;
+  background-color: var(--color-grey);
 }
 
 #root {
@@ -54,14 +61,11 @@ body {
   margin: 40px;
   font-size: x-large;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-.x {
-  color: blue;
-}
-
-.o {
-  color: green;
+  display: block flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
 }
 
 .game-board {
@@ -78,7 +82,7 @@ body {
 
 .grid-line {
   position: absolute;
-  background-color: #495057;
+  background-color: var(--color-dark-grey);
   border-radius: var(--gap-size);
 }
 
@@ -107,7 +111,7 @@ body {
 }
 
 .square {
-  background-color: #F8F9FA;
+  background-color: var(--color-grey);
   border-radius: 0;
   border: none;
   padding: 0;
@@ -115,15 +119,15 @@ body {
 
 .square:hover {
   cursor: pointer;
-  background-color: rgb(148 149 150 / 0.2);
+  background-color: var(--color-grey-highlight);
 }
 
 .square.x:hover, .square.x.win {
-  background-color: #0077B633;
+  background-color: var(--color-blue-highlight);
 }
 
 .square.o:hover, .square.o.win {
-  background-color: #2D6A4F33;
+  background-color: var(--color-green-highlight);
 }
 
 @keyframes draw {
@@ -173,7 +177,7 @@ ol li:not(:first-child) {
 }
 
 .history-item {
-  background-color: white;
+  background-color: var(--color-grey);
   border-radius: 5px;
   padding: 5px;
   width: 100%;
@@ -181,11 +185,11 @@ ol li:not(:first-child) {
 }
 
 .history-item.x {
-  border: 2px solid blue;
+  border: 2px solid var(--color-blue);
 }
 
 .history-item.o {
-  border: 2px solid green;
+  border: 2px solid var(--color-green);
 }
 
 .history-item:hover {
@@ -193,9 +197,9 @@ ol li:not(:first-child) {
 }
 
 .history-item.x:hover {
-  background-color: rgb(0 0 255 / 0.1);
+  background-color: var(--color-blue-highlight);
 }
 
 .history-item.o:hover {
-  background-color: rgb(0 128 0 / 0.1);
+  background-color: var(--color-green-highlight);
 }
