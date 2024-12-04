@@ -105,7 +105,7 @@ function Board({ xIsNext, squares, onPlay }) {
 
   if (winnerSquares) {
     status = "Winner: ";
-    player = squares[winnerSquares[0]];
+    player = squares[winnerSquares[0]] === "X" ? <XSvg small /> : <OSvg small />;
   } else if (draw) {
     status = "Draw";
     player = undefined;
